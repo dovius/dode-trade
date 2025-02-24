@@ -1,0 +1,8 @@
+{
+    "symbol": "BTC/USDT",
+    "timeframe": "1m",
+    "db_name": "crypto_data.db",
+    "initial_cash": 1000.0,
+    "num_signals": 10,
+    "days": 7
+}
