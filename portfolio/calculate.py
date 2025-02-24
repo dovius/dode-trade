@@ -30,15 +30,17 @@ def calculate_portfolio_value(df: pd.DataFrame, buy_points: pd.DataFrame, sell_p
         price = row['close']
         
         if timestamp in buy_timestamps:
-            amount_to_buy = current_cash * 0.95
+            amount_to_buy = current_cash * 1.0
             crypto_bought = amount_to_buy / price
-            current_crypto += crypto_bought
+            fees = crypto_bought * 0.001
+            current_crypto += crypto_bought - fees
             current_cash -= amount_to_buy
             print(f"Buy at {timestamp}: Bought {crypto_bought:.6f} units")
         
         elif timestamp in sell_timestamps:
             amount_received = current_crypto * price
-            current_cash += amount_received
+            fees = amount_received * 0.001
+            current_cash += amount_received - fees
             current_crypto = 0.0
             print(f"Sell at {timestamp}: Sold for {amount_received:.2f}")
         

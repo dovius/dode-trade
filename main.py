@@ -22,7 +22,6 @@ def main():
     start_date = datetime.now() - timedelta(days=days)
     end_date = datetime.now()
     df = fetch_historical_data(symbol, timeframe, start_date, end_date)
-    print(df)
     save_to_sqlite(df, symbol, timeframe, db_name)
     
     # Load data and process
