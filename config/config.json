@@ -1,8 +1,57 @@
 {
     "symbol": "BTC/USDT",
-    "timeframe": "1m",
+    "timeframe": "1h",
     "db_name": "crypto_data.db",
-    "initial_cash": 100.0,
-    "num_signals": 10,
-    "days": 7
-}
+    "initial_cash": 1000.0,
+    "days": 30,
+    "paper_trading": true,
+    "exchange": "binance",
+    "api_key": "",
+    "api_secret": "",
+    "update_interval": 300,
+    "signal_expiry": 600,
+    "order_type": "market",
+    "max_positions": 3,
+    
+    "# Strategy Settings": "----------------------",
+    "enable_strategy_aggregation": false,
+    "strategy_aggregation_method": "weighted",
+    
+    "# Trend Following Settings": "----------------------",
+    "tf_short_window": 9,
+    "tf_long_window": 21,
+    "tf_adx_period": 14,
+    "tf_adx_threshold": 25,
+    "tf_use_adx_filter": true,
+    
+    "# Mean Reversion Settings": "----------------------",
+    "mr_rsi_period": 14,
+    "mr_rsi_oversold": 30,
+    "mr_rsi_overbought": 70,
+    "mr_bb_period": 20,
+    "mr_bb_std": 2.0,
+    "mr_use_rsi": true,
+    "mr_use_bb": true,
+    "mr_confirmation_candles": 1,
+    
+    "# Arbitrage Settings": "----------------------",
+    "arb_min_profit_pct": 0.5,
+    "arb_fee_pct": 0.1,
+    "arb_base_asset": "USDT",
+    
+    "# Risk Management Settings": "----------------------",
+    "risk_per_trade": 0.01,
+    "max_risk_per_day": 0.05,
+    "max_drawdown": 0.15,
+    "stop_multiplier": 1.5,
+    "atr_period": 14,
+    "trailing_stop": true,
+    "take_profit_ratio": 2.0,
+    "use_fixed_stops": false,
+    "fixed_stop_pct": 0.03,
+    
+    "# Visualization Settings": "----------------------",
+    "show_all_indicators": true,
+    "save_charts": true,
+    "charts_dir": "charts"
+  }
