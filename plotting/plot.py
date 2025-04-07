@@ -2,6 +2,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 import numpy as np
+import plotly.io as pio
+
+# Set the default renderer to 'browser'
+pio.renderers.default = 'browser'
 
 def plot_data(df: pd.DataFrame, buy_points: pd.DataFrame, sell_points: pd.DataFrame, 
               portfolio: pd.DataFrame, symbol: str, trades_df: pd.DataFrame = None) -> None:
@@ -182,4 +186,7 @@ def plot_data(df: pd.DataFrame, buy_points: pd.DataFrame, sell_points: pd.DataFr
     fig.update_yaxes(title_text="Portfolio Value ($)", row=2, col=1)
     fig.update_yaxes(title_text="Profit/Loss (%)", row=3, col=1)
     
-    fig.show()
+    # Save to HTML file and open in browser
+    html_file = f"{symbol.replace('/', '_')}_analysis.html"
+    fig.write_html(html_file, auto_open=True)
+    print(f"Plot saved to {html_file} and opened in browser")
