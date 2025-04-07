@@ -22,15 +22,15 @@ def main():
     start_date = datetime.now() - timedelta(days=days)
     end_date = datetime.now()
     df = fetch_historical_data(symbol, timeframe, start_date, end_date)
-    save_to_sqlite(df, symbol, timeframe, db_name)
+    # save_to_sqlite(df, symbol, timeframe, db_name)
     
-    # Load data and process
-    df = load_from_sqlite(symbol, timeframe, db_name)
+    # # Load data and process
+    # df = load_from_sqlite(symbol, timeframe, db_name)
     buy_points, sell_points = generate_dummy_signals(df, num_signals)
-    portfolio = calculate_portfolio_value(df, buy_points, sell_points, initial_cash)
+    portfolio, trades = calculate_portfolio_value(df, buy_points, sell_points, initial_cash)
     
     # Plot results
-    plot_data(df, buy_points, sell_points, portfolio, symbol)
+    plot_data(df, buy_points, sell_points, portfolio, symbol, trades)
 
 if __name__ == "__main__":
     main()
