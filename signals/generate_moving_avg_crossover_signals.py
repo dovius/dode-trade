@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def generate_dummy_signals(df: pd.DataFrame, num_signals: int = 10) -> tuple[pd.DataFrame, pd.DataFrame]:
+def generate_moving_avg_crossover_signals(df: pd.DataFrame, num_signals: int = 10) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Generate trading signals based on moving average crossover strategy.
     
